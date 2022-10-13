@@ -7,6 +7,7 @@ import requests
 import sys
 import json
 from fastapi.middleware.cors import CORSMiddleware
+import emoji
 
 
 app = FastAPI()
@@ -78,6 +79,7 @@ def search_tweets(CK, CKS, AT, ATS, user_id, tweet_id, count, range):
         for tweet in data:
             if tweet['in_reply_to_status_id_str'] == tweet_id: # ツイートIDに一致するものを抽出
                 tweets.append(tweet['text'])  # ツイート内容
+                print(tweet['text'])
                 reply_cnt += 1
             maxid = int(tweet["id"]) - 1
         url = "https://api.twitter.com/1.1/search/tweets.json?lang=ja&q="+user_id+"&count="+str(count)+"&max_id="+str(maxid)
@@ -90,3 +92,6 @@ def search_tweets(CK, CKS, AT, ATS, user_id, tweet_id, count, range):
     print('検索回数 :', cnt)
     print('リプライ数 :', reply_cnt)
     return tweets
+
+def remove_emoji(src_str):
+    return ''.join(c for c in src_str if c not in emoji.UNICODE_EMOJI)
