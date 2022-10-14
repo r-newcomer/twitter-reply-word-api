@@ -50,6 +50,7 @@ pip install uvicorn fastapi emoji requests requests_oauthlib mecab ipykernel
 以下のリンクを参考にして行う。
 `sudo apt install fontconfig`などは`sudo apt`を`brew`に置き換えて実装する
 Ex.) `brew install fontconfig`
+
 https://self-development.info/ipaexgothic%e3%81%ab%e3%82%88%e3%82%8bmatplotlib%e3%81%ae%e6%97%a5%e6%9c%ac%e8%aa%9e%e5%8c%96%e3%80%90python%e3%80%91/
 
 
